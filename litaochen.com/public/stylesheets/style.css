@@ -1,0 +1,77 @@
+/*for label*/
+
+
+
+
+/*for class*/
+
+/*center the nav bar*/
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    margin: 10px auto;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+/*center the nav bar*/
+
+
+.navbar-brand {
+    font-size: 1.6em;
+    line-height: 1.9em;
+}
+
+
+.seperator {
+    text-align: center;
+    padding-top: 20px;
+}
+
+
+.header {
+    text-align: center;
+    background: url("http://localhost:3001/images/backgroundimg.jpeg") no-repeat;
+    background-size: cover;
+    height: 600px;
+}
+
+.header > .container {
+      padding-top: 15%;
+  }
+
+
+.supporttext {
+    font-size: 2rem;
+    color: #f2f2f2;
+    line-height: 10px;
+
+}
+
+.keytext {
+    font-size: 3.5rem;
+    color: #f2f2f2;
+}
+
+
+.section {
+    font-size: 2.0em;
+}
+
+.line {
+    text-decoration: line-through;
+}
+
+.seperator > .supporttext {
+    color: #000;
+    line-height: normal;
+    font-size: 25px;
+}
+
+
+/*for id*/
+#bs-example-navbar-collapse-1 {
+    font-size: 1.4em;
+}
+
