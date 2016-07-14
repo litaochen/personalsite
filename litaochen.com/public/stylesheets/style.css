@@ -1,8 +1,5 @@
 /*for label*/
 
-
-
-
 /*for class*/
 
 /*center the nav bar*/
@@ -32,7 +29,7 @@
 
 .header {
     text-align: center;
-    background: url("http://localhost:3001/images/backgroundimg.jpeg") no-repeat;
+    background: url("../images/backgroundimg.jpeg") no-repeat;
     background-size: cover;
     height: 600px;
 }
@@ -57,11 +54,40 @@
 
 .section {
     font-size: 2.0em;
+    width: 90%;
+    margin: 0 auto;
+    height: 300px;
+    line-height: 300px;
+    border: solid black 2px;
 }
+
+.logo {
+    width: 60%;
+}
+
+
+.logo.techType {
+    width: 80%;
+    padding: 10% 20%;
+    margin: 0 0;
+    border-radius: 25px;
+    background-color: #C8C8C8;
+}
+
+.logo.examples {
+    padding-left: 5%;
+}
+
+.logo.examples.mouseOn {
+    width: 70%;
+}
+
+
 
 .line {
     text-decoration: line-through;
 }
+
 
 .seperator > .supporttext {
     color: #000;

@@ -64,6 +64,6 @@ module.exports = app;
 
 
 //start the server
-app.listen(3001, "localhost", function() {
+app.listen(3000, "192.168.31.26", function() {
     console.log('web server started!');
 });
