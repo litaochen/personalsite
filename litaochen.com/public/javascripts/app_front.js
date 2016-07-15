@@ -24,9 +24,15 @@ $.fn.scrollView = function () {
 }
 
 
-$('a').click(function(event) {
+$('.navbar a').click(function(event) {
     event.preventDefault();
-    $($(this).attr("href")).scrollView();
+    // check if the element exists in current page then scroll
+    var element = $(this).attr("href");
+    if (!$(element).length) {                           //The element is not here, go to the element on index page
+        window.location.replace("/" + element);
+    } else {                                            //found element, let us scroll
+        $(element).scrollView();
+    }
 });
 //*****************************************
 
