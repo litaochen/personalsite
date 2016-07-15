@@ -79,9 +79,15 @@
     padding-left: 5%;
 }
 
-.logo.examples.mouseOn {
+
+.examples:hover {
     width: 70%;
 }
+
+/*the style below is for javascript*/
+/*.logo.examples.mouseOn {*/
+    /*width: 70%;*/
+/*}*/
 
 
 

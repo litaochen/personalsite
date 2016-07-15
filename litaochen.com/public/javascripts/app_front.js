@@ -1,17 +1,20 @@
 
-$(".examples").mouseenter(function() {
-    $(this).addClass('mouseOn');
-    console.log($(this).classList);
-});
 
-$(".examples").mouseleave(function() {
-    $(this).removeClass('mouseOn');
-    console.log($(this).classList);
-});
+// magnify the element when mouse on. This can also be implemented by css using :hover {}
+//*****************************************
+// $(".examples").mouseenter(function() {
+//     $(this).addClass('mouseOn');
+// });
+//
+// $(".examples").mouseleave(function() {
+//     $(this).removeClass('mouseOn');
+// });
+
+//*****************************************
 
 
-// scroll to on click
-
+// scroll to the anchor point on click
+//*****************************************
 $.fn.scrollView = function () {
     return this.each(function () {
         $('html, body').animate({
@@ -25,6 +28,7 @@ $('a').click(function(event) {
     event.preventDefault();
     $($(this).attr("href")).scrollView();
 });
+//*****************************************
 
 
 
