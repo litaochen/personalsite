@@ -13,7 +13,7 @@
 //*****************************************
 
 
-// scroll to the anchor point on click
+// scroll to the anchor point on click of navbar items
 //*****************************************
 $.fn.scrollView = function () {
     return this.each(function () {
