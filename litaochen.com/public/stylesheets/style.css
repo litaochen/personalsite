@@ -15,6 +15,11 @@
 /*center the nav bar*/
 
 
+.nav li:hover {
+    background-color: #80c1ff;
+}
+
+
 .navbar-brand {
     font-size: 1.6em;
     line-height: 1.9em;
@@ -111,13 +116,14 @@
 
 
 /*for todo list*/
+/******************************/
 #todobkg {
     height: 100vh;
     width: 100%;
     padding-top: 100px;
-    background: #83a4d4; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #83a4d4 , #b6fbff); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #83a4d4 , #b6fbff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #B993D6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #B993D6 , #8CA6DB); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #B993D6 , #8CA6DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
@@ -125,14 +131,36 @@
     width: 450px;
     height: 80%;
     margin:0 auto;
-    background-color: pink;
+    border: none;
+    background-color: white;
+    /*box shadow offset-x, offset-y, blur-radius, color*/
+    box-shadow: 2px 2px 2px gray;
 }
 
 ul {
     list-style: none;
-    padding-left: 0;
+    margin:0;
+    padding:0;
 }
 
+
+input {
+    height: 45px;
+    margin: 0;
+    padding: 0 0 0 10px;
+    border:none;
+    width: 100%;
+    line-height: 45px;
+    font-size: 1.2em;
+}
+
+
+form {
+    height: 50px;
+    padding:0;
+    margin:0;
+    border:none;
+}
 
 /*line-height: 100% means 100% of the font size for that element, not 100% of its height. */
 /*In fact, the line height is always relative to the font size, not the height, */
@@ -141,39 +169,46 @@ ul {
 
 .content li {
     width: 100%;
-    height: 60px;
-    margin:0 0;
+    height: 50px;
+    margin:0;
+    padding:0;
+    border:0;
 }
 
-.todoTitle h3{
-    line-height: 60px;
-    text-align: center;
-    margin-top: 0;
-    margin-left: 31px;     /* margin to offset the left-move from the plus sign*/
-    display: inline-block;
-}
-
-
-input {
-    height: 58px;
-    padding: 1px 0;
-    padding-left: 10px;
-    margin: 0;
+.content li.todoItems {
+    margin:0;
+    padding:0 0 0 10px;
+    line-height: 48px;
+    border:none;
     width: 100%;
+    font-size: 1.3em;
 }
 
-
-.fa-plus {
-    line-height: 60px;
-    padding-left:0;
-    padding-right: 20px;
-    margin:0 auto;
-    float: right;
-    font-size: 2.0em;
-}
 
 
 .todoTitle {
     font-size: 1.0em;
     text-align: center;
+    background-color: #0088cc;
+}
+
+.todoTitle h3{
+    line-height: 50px;
+    text-align: center;
+    margin: 0 0 0 35px; /* margin to offset the left-move from the plus sign*/
+    display: inline-block;
+}
+
+
+.fa-plus {
+    line-height: 50px;
+    padding-left:0;
+    padding-right: 20px;
+    margin:0 auto;
+    float: right;
+    font-size: 1.8em;
+}
+
+.todoItems:nth-of-type(2n) {
+    background-color: #EEEEEE;
 }
