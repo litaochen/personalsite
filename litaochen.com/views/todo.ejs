@@ -5,15 +5,16 @@
         <div id="frame">
             <ul class="content">
                 <li class="todoTitle"><h3>Todo List</h3><span><i class="fa fa-plus fa-lg" aria-hidden="true"></i></span></li>
-                <input type="text" placeholder="Add an item">
-                <li class="todoItems">Buy milk</li>
-                <li class="todoItems">Read a book</li>
-                <li class="todoItems">Learn driving</li>
-                <li class="todoItems">Play with Allen</li>
-                <li class="todoItems">Watch video</li>
+                <form action="todo/" method="post">
+                    <input type="text" placeholder="Add an item" name="content">
+                </form>
+                <% todoList.forEach(function(item) {     %>
+                    <li class="todoItems"> <%= item.content %> </li>
+               <% }); %>
             </ul>
         </div>
     </div>
 
+<script src="/javascripts/todo.js"></script>
 
 <% include partials/footer %>

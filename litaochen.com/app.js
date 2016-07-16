@@ -5,12 +5,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var seed       = require('./seed');         //seed db
 
 
 //require routes
 var routes      = require('./routes/index');
 var users       = require('./routes/users');
-var todoRoutes  = require('./routes/todo');
+var todo       = require('./routes/todo');
 
 
 var app = express();
@@ -33,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //set route path for each route files
 app.use('/', routes);
 app.use('/users', users);
-app.use('/todo', todoRoutes);
+app.use('/todo', todo);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -65,6 +66,14 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+
+
+//seedDB for test. comment it when entering production phase.
+seed();
+
+
+
 
 
 module.exports = app;

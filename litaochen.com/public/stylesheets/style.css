@@ -145,10 +145,10 @@ ul {
 
 
 input {
-    height: 45px;
-    margin: 0;
+    height: 50px;
     padding: 0 0 0 10px;
     border:none;
+    box-sizing: border-box;  /*tell browser that the box size should include border*/
     width: 100%;
     line-height: 45px;
     font-size: 1.2em;
@@ -178,7 +178,7 @@ form {
 .content li.todoItems {
     margin:0;
     padding:0 0 0 10px;
-    line-height: 48px;
+    line-height: 50px;
     border:none;
     width: 100%;
     font-size: 1.3em;
@@ -189,6 +189,7 @@ form {
 .todoTitle {
     font-size: 1.0em;
     text-align: center;
+    color: #FFFFFF;
     background-color: #0088cc;
 }
 
