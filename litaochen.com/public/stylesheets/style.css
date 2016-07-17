@@ -17,6 +17,7 @@
 
 .nav li:hover {
     background-color: #80c1ff;
+    transition: background-color 0.2s;
 }
 
 
@@ -196,19 +197,59 @@ form {
 .todoTitle h3{
     line-height: 50px;
     text-align: center;
-    margin: 0 0 0 35px; /* margin to offset the left-move from the plus sign*/
+    margin: 0 0 0 100px; /* margin to offset the left-move from the plus sign*/
     display: inline-block;
 }
 
 
-.fa-plus {
-    line-height: 50px;
-    padding-left:0;
-    padding-right: 20px;
-    margin:0 auto;
+/*dropdown menu*/
+
+.dropdown {
+    display: inline-block;
     float: right;
-    font-size: 1.8em;
+    text-align: right;
+    margin:0;
+    padding-right: 15px;
+    width: 100px;
+
 }
+
+
+.fa-bars {
+    display: block;
+    line-height: 50px;
+    font-size: 1.8em;
+
+}
+
+
+.dropdown-content {
+    display: none;
+    margin:0;
+    padding: 0;
+    width: 100px;
+    text-align: center;
+    position: absolute;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    margin:0;
+    padding:0;
+    line-height: 40px;
+    font-size: 1.2em;
+    display: block;
+}
+
+.dropdown:hover > .dropdown-content {
+    display: block;
+    background-color: #EEEEEE;
+}
+
+.dropdown-content a:hover {
+    background: #0088cc;
+}
+
 
 .todoItems:nth-of-type(2n) {
     background-color: #EEEEEE;

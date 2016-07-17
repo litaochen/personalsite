@@ -4,7 +4,18 @@
     <div id="todobkg">
         <div id="frame">
             <ul class="content">
-                <li class="todoTitle"><h3>Todo List</h3><span><i class="fa fa-plus fa-lg" aria-hidden="true"></i></span></li>
+                <li class="todoTitle">
+                    <h3>Todo List</h3>
+                    <div class="dropdown">
+                            <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+                            <div class="dropdown-content">
+                                <a  href="#">Undo all</a>
+                                <a  href="#">Finish all</a>
+                                <a  href="#">Delete all</a>
+                            </div>
+                    </div>
+
+                </li>
                 <form action="todo/" method="post">
                     <input type="text" placeholder="Add an item" name="content">
                 </form>
