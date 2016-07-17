@@ -147,7 +147,7 @@ ul {
 
 input {
     height: 50px;
-    padding: 0 0 0 10px;
+    padding: 0 0 0 12px;
     border:none;
     box-sizing: border-box;  /*tell browser that the box size should include border*/
     width: 100%;
@@ -156,12 +156,6 @@ input {
 }
 
 
-form {
-    height: 50px;
-    padding:0;
-    margin:0;
-    border:none;
-}
 
 /*line-height: 100% means 100% of the font size for that element, not 100% of its height. */
 /*In fact, the line height is always relative to the font size, not the height, */
@@ -170,22 +164,10 @@ form {
 
 .content li {
     width: 100%;
-    height: 50px;
-    margin:0;
-    padding:0;
-    border:0;
-}
-
-.content li.todoItems {
-    margin:0;
-    padding:0 0 0 10px;
-    line-height: 50px;
+    line-height:50px;
     border:none;
-    width: 100%;
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
-
-
 
 .todoTitle {
     font-size: 1.0em;
@@ -202,6 +184,35 @@ form {
 }
 
 
+.delete {
+    line-height: 50px;
+    margin:0 10px 0 0;
+    display: inline-block;      /*have to set as inline-block to enable the property of width*/
+    width:0;
+    color: white;
+    text-align: center;
+    background-color: red;
+    opacity: 0;                 /*The text will still be there even the width is set to 0. Have to use opacity to hide it*/
+}
+
+
+li.todoItems:hover .delete {
+    width: 50px;
+    opacity: 1;
+    transition: all 0.2s;
+}
+
+li.todoItems:hover {
+    background-color: #CCCCCC;
+}
+
+.todoContent.done {
+    text-decoration: line-through;
+}
+
+.todoItems:nth-of-type(2n) {
+    background-color: #EEEEEE;
+}
 /*dropdown menu*/
 
 .dropdown {
@@ -218,7 +229,7 @@ form {
 .fa-bars {
     display: block;
     line-height: 50px;
-    font-size: 1.8em;
+    font-size: 1.5em;
 
 }
 
@@ -228,29 +239,26 @@ form {
     margin:0;
     padding: 0;
     width: 100px;
-    text-align: center;
     position: absolute;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.dropdown-content a {
-    margin:0;
-    padding:0;
+.option {
     line-height: 40px;
-    font-size: 1.2em;
+    text-align: right;
+    padding-right: 15px;
+    color: white;
     display: block;
 }
 
 .dropdown:hover > .dropdown-content {
     display: block;
-    background-color: #EEEEEE;
+    background-color: #0088cc;
+
 }
 
-.dropdown-content a:hover {
-    background: #0088cc;
-}
-
-
-.todoItems:nth-of-type(2n) {
-    background-color: #EEEEEE;
+.option:hover {
+    color: #000;
+    background: #EEEEEE;
+    text-decoration:  none;
 }

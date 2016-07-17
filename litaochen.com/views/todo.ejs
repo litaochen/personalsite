@@ -9,9 +9,9 @@
                     <div class="dropdown">
                             <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
                             <div class="dropdown-content">
-                                <a  href="#">Undo all</a>
-                                <a  href="#">Finish all</a>
-                                <a  href="#">Delete all</a>
+                                <a  class="option" id='undoall' href="#">Undo all</a>
+                                <a  class="option" id='finishall' href="#">Finish all</a>
+                                <a  class="option" id='deleteall' href="#">Delete all</a>
                             </div>
                     </div>
 
@@ -20,7 +20,10 @@
                     <input type="text" placeholder="Add an item" name="content">
                 </form>
                 <% todoList.forEach(function(item) {     %>
-                    <li class="todoItems"> <%= item.content %> </li>
+                    <li class="todoItems">
+                        <span class="delete"><i class="fa fa-trash fa-lg"></i></span>
+                        <span class="todoContent"><%= item.content %></span>
+                    </li>
                <% }); %>
             </ul>
         </div>
