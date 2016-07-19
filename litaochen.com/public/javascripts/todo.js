@@ -1,55 +1,31 @@
 
-// scroll to the anchor point on click of navbar items
-//*****************************************
-$.fn.scrollView = function () {
-    return this.each(function () {
-        $('html, body').animate({
-            scrollTop: $(this).offset().top
-        }, 500);
-    });
-}
-
-
-$('.navbar a').click(function(event) {
-    event.preventDefault();
-    // check if the element exists in current page then scroll
-    var element = $(this).attr("href");
-    if (!$(element).length) {                           //The element is not here, go to the element on index page
-        window.location.replace("/" + element);
-    } else {                                            //found element, let us scroll
-        $(element).scrollView();
-    }
-});
-//*****************************************
-
-
 //set up hidden form for submitting data through js
-//***************************************************
-// This is the function used to actually send the data
+// This is the generic function for submitting data through hidden form
 // It takes one parameter, which is an object populated with key/value pairs.
-function postData(data) {
-    var DataForm = document.createElement("form"),      //create hidden form for data submit
-        node = document.createElement("input");             //create hidden input field for data entry
+function post(path, method, params, target) {
+    var method = method || "post"; // Set method to post by default if not specified.
 
-    DataForm.action = "/todo";
-    DataForm.method = "POST";
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+    form.setAttribute("target", target);
 
-    for(var name in data) {                             //put the data into the hidden form and send out
-        node.name  = name;
-        node.value = data[name].toString();
-        DataForm.appendChild(node.cloneNode());
+    for(var key in params) {
+        if(params.hasOwnProperty(key)) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+
+            form.appendChild(hiddenField);
+        }
     }
 
-    // To be sent, the form needs to be attached to the main document.
-    DataForm.style.display = "none";
-    document.body.appendChild(DataForm);
-
-    DataForm.submit();
-
-    // But once the form is sent, it's useless to keep it.
-    document.body.removeChild(DataForm);
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
 }
-//***************************************************
+
 
 // submit data to server when user hit enter key
 $('input').keypress(function(event) {
@@ -79,9 +55,6 @@ $('#undoall').click(function() {
 //finish all by oneclick
 $('#finishall').click(function() {
     $('.todoContent').each(function(item) {
-        postData({                                                         //send data through js test
-            content: "add through js3"                                    //true means finished
-        });
         $(this).addClass('done');
     });
 });

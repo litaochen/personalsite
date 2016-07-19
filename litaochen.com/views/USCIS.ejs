@@ -1,0 +1,63 @@
+<% include partials/header %>
+
+<style>
+    .uscisbody {
+        width: 80%;
+        text-align: center;
+        padding-top: 100px;
+        margin:0 auto;
+    }
+
+    h1 {
+        margin:30px auto;
+        padding-bottom: 30px;
+    }
+
+    label {
+        font-size: 1.5em;
+
+    }
+
+    input {
+        width: 400px;
+        margin:0 10px;
+        display: inline-block;
+        border:1px solid rgba(150, 150, 150, .5);
+    }
+
+    .resultSection {
+        display: none;
+    }
+
+    .resultSection.show {
+        background-color: #99ccff;
+        margin: 20px auto;
+        padding:20px 20 px;
+        width: 70%;
+        text-align: center;
+        display: block;
+        border: solid 1px gray;
+    }
+
+    .result {
+        font-size: 1.5em;
+    }
+
+</style>
+
+
+<div class='uscisbody'>
+    <h1>Check your green card application status</h1>
+        <label>Case number:</label> <input type="text" name="appReceiptNum" placeholder="Enter your case number here">
+        <button class="btn btn-success btn-lg">Submit</button>
+</div>
+
+
+<div class="resultSection">
+    <h2 class="resultTitle">Here is the result:</h2>
+    <p class="result"></p>
+</div>
+
+
+<script src="/javascripts/uscis.js"></script>
+<% include partials/footer %>
