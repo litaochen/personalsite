@@ -29,7 +29,7 @@
 
 .seperator {
     text-align: center;
-    padding: 20px 0;
+    margin: 50px auto;
 
 }
 
@@ -46,12 +46,8 @@ hr {
     background: url("../images/backgroundimg.jpeg") no-repeat;
     background-size: cover;
     height: 600px;
+    padding-top:250px;
 }
-
-.header > .container {
-      padding-top: 15%;
-  }
-
 
 .supporttext {
     font-size: 2rem;
@@ -69,7 +65,8 @@ hr {
 .section {
     font-size: 2.0em;
     width: 90%;
-    margin: 0 auto;
+    margin: 20px auto;
+    padding-top:50px;
     height: 400px;
     line-height: 300px;
 }
