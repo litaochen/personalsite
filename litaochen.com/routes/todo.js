@@ -35,7 +35,29 @@ router.post('/', function(req, res) {
 });
 
 
+//update todo status by id
 
+router.post('/:id', function(req, res) {
+    console.log("Change item status requested!");
+    //find and update. If status is delete, then remove. otherwise just update
+    if(req.body.status === "delete") {
+        Todo.remove({_id: req.params.id}, function(err) {
+            if(err) {
+                console.log(err);
+            }else {
+                res.redirect('/todo');
+            }
+        });
+    }else {
+        Todo.findByIdAndUpdate(req.params.id, {status: req.body.status}, function(err) {
+            if(err) {
+                console.log(err);
+            }else {
+                res.send('done');
+            }
+        });
+    }
+});
 
 //export router for final use
 module.exports = router;

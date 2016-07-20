@@ -10,7 +10,7 @@
                             <div class="dropdown-content">
                                 <a  class="option" id='undoall' href="#">Undo all</a>
                                 <a  class="option" id='finishall' href="#">Finish all</a>
-                                <a  class="option" id='deleteall' href="#">Delete all</a>
+                                <a  class="option" id='deleteall' href="/todo">Delete all</a>
                             </div>
                     </div>
 
@@ -21,7 +21,14 @@
                 <% todoList.forEach(function(item) {     %>
                     <li class="todoItems">
                         <span class="delete"><i class="fa fa-trash fa-lg"></i></span>
-                        <span class="todoContent"><%= item.content %></span>
+                        <span class="todoContent
+                              <% if(item.status) { %>
+                                 <%= 'done' %>
+                              <% }%>"
+                              id="<%= item._id %>"
+                        >
+                            <%= item.content %>
+                        </span>
                     </li>
                <% }); %>
             </ul>

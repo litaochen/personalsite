@@ -1,30 +1,44 @@
 
-//set up hidden form for submitting data through js
-// This is the generic function for submitting data through hidden form
-// It takes one parameter, which is an object populated with key/value pairs.
-function post(path, method, params, target) {
-    var method = method || "post"; // Set method to post by default if not specified.
+//sending post reuest through XMLHTTPRequest
+function updateStatus(path, newStatus) {
+    var xhttp = new XMLHttpRequest();
+    var url = path;
+    var params = "status=" + newStatus;
 
-    var form = document.createElement("form");
-    form.setAttribute("method", method);
-    form.setAttribute("action", path);
-    form.setAttribute("target", target);
+    xhttp.open('post', url, true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-    for(var key in params) {
-        if(params.hasOwnProperty(key)) {
-            var hiddenField = document.createElement("input");
-            hiddenField.setAttribute("type", "hidden");
-            hiddenField.setAttribute("name", key);
-            hiddenField.setAttribute("value", params[key]);
-
-            form.appendChild(hiddenField);
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState === 4 && xhttp.status === 200) { //got success response from server
+            data = xhttp.responseText;
+        }else {
+            console.log(xhttp.status);
+            $('.result').text("Something wrong with the query, please try again later!");
         }
     }
-
-    document.body.appendChild(form);
-    form.submit();
-    document.body.removeChild(form);
+    xhttp.send(params);
 }
+
+
+//function for updating the status of an item
+function update(todoContent, newsts) {
+    var newStatus;
+    if(typeof(newsts) === 'undefined') {            //set default status from current element
+        newStatus = !$(todoContent).hasClass('done');
+    }
+    else {
+        newStatus = newsts;
+    }
+
+    var id = $(todoContent).attr('id');
+    updateStatus('/todo/' + id, newStatus);
+}
+
+//function to redirect to another page by javascript (for delete all buton)
+function redirect (url) {
+    window.location.replace(url);
+}
+
 
 
 // submit data to server when user hit enter key
@@ -38,25 +52,43 @@ $('input').keypress(function(event) {
 });
 
 
-//strike through when clicking on an item
+
+//remove element when clicking on the delete icon
+$('.fa-trash').click(function() {
+    var todelete = $(this).parent().next();
+    update(todelete, "delete");
+    redirect('/todo');
+});
+
+
+//strike through when clicking on an item and send update request to the backend
+//Here we use post method to send data (Strictly spiking I should use put method)
 $('.todoItems').click(function() {
+    update($(this).children('.todoContent'));
     $(this).children('.todoContent').toggleClass('done');       //children selector
 });
 
 
-
 //undo all items by clicking the option in menu bar
 $('#undoall').click(function() {
-   $('.todoContent').each(function(item) {
+   $('.todoContent').each(function() {
+       update(this, false);
       $(this).removeClass('done');
    });
 });
 
 //finish all by oneclick
 $('#finishall').click(function() {
-    $('.todoContent').each(function(item) {
+    $('.todoContent').each(function() {
+        update(this, true);
         $(this).addClass('done');
     });
 });
 
 //delete all the items in the todo list
+$('#deleteall').click(function() {
+    $('.todoContent').each(function() {
+        update(this, "delete");
+        redirect("/todo");
+    });
+});

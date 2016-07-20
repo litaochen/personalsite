@@ -9,6 +9,11 @@ var mongoose        = require('mongoose'),
         {
             content: 'Finish todo project',
         },
+
+        {
+            content: 'This item is done',
+            status: true
+        },
     ];
 
 function seedDB() {
