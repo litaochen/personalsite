@@ -54,8 +54,8 @@ $('input').keypress(function(event) {
 
 
 //remove element when clicking on the delete icon
-$('.fa-trash').click(function() {
-    var todelete = $(this).parent().next();
+$('.delete').click(function() {
+    var todelete = $(this).next();
     update(todelete, "delete");
     redirect('/todo');
 });
