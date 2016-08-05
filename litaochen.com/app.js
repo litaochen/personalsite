@@ -83,6 +83,6 @@ module.exports = app;
 
 
 //start the server
-app.listen(3000, "192.168.31.26", function() {
+app.listen(3000, "192.168.31.152", function() {
     console.log('web server started!');
 });
